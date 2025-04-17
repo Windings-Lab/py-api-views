@@ -10,7 +10,7 @@ class ActorSerializer(serializers.Serializer):
 
     class Meta:
         model = Actor
-        fields = ('id', 'first_name', 'last_name')
+        fields = ("id", "first_name", "last_name")
 
     def create(self, validated_data):
         return Actor.objects.create(**validated_data)
@@ -34,7 +34,7 @@ class GenreSerializer(serializers.Serializer):
 
     class Meta:
         model = Genre
-        fields = ('id', 'name')
+        fields = ("id", "name")
 
     def create(self, validated_data):
         return Genre.objects.create(**validated_data)
@@ -53,7 +53,7 @@ class CinemaHallSerializer(serializers.Serializer):
 
     class Meta:
         model = CinemaHall
-        fields = ('id', 'name', 'rows', 'seats_in_row')
+        fields = ("id", "name", "rows", "seats_in_row")
 
     def create(self, validated_data):
         return CinemaHall.objects.create(**validated_data)
@@ -62,8 +62,7 @@ class CinemaHallSerializer(serializers.Serializer):
         instance.name = validated_data.get("name", instance.name)
         instance.rows = validated_data.get("rows", instance.rows)
         instance.seats_in_row = validated_data.get(
-            "seats_in_row",
-            instance.seats_in_row
+            "seats_in_row", instance.seats_in_row
         )
         instance.save()
         return instance
@@ -85,7 +84,7 @@ class MovieSerializer(serializers.Serializer):
 
     class Meta:
         model = Movie
-        fields = ('id', 'title', 'description', 'duration', 'actors', 'genres')
+        fields = ("id", "title", "description", "duration", "actors", "genres")
 
     def create(self, validated_data):
         actors = validated_data.pop("actors")
@@ -98,7 +97,8 @@ class MovieSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         instance.title = validated_data.get("title", instance.title)
         instance.description = validated_data.get(
-            "description", instance.description
+            "description",
+            instance.description
         )
         instance.duration = validated_data.get("duration", instance.duration)
 

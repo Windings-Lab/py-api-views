@@ -5,8 +5,8 @@ from rest_framework.response import Response
 
 from cinema.models import Genre, Actor, CinemaHall, Movie
 from cinema.serializers import (
-    GenreSerializer, 
-    ActorSerializer, 
+    GenreSerializer,
+    ActorSerializer,
     CinemaHallSerializer,
     MovieSerializer
 )

@@ -14,10 +14,26 @@ router.register(r"cinema/movies", MovieViewSet)
 
 urlpatterns = [
     path("api/", include(router.urls)),
-    path("api/cinema/genres/", GenreListCreateView.as_view(), name="genre-list"),
-    path("api/cinema/genres/<int:pk>/", GenreDetailView.as_view(), name="genre-detail"),
-    path("api/cinema/actors/", ActorListCreateView.as_view(), name="actor-list"),
-    path("api/cinema/actors/<int:pk>/", ActorDetailView.as_view(), name="actor-detail"),
+    path(
+        "api/cinema/genres/",
+        GenreListCreateView.as_view(),
+        name="genre-list"
+    ),
+    path(
+        "api/cinema/genres/<int:pk>/",
+        GenreDetailView.as_view(),
+        name="genre-detail"
+    ),
+    path(
+        "api/cinema/actors/",
+        ActorListCreateView.as_view(),
+        name="actor-list"
+    ),
+    path(
+        "api/cinema/actors/<int:pk>/",
+        ActorDetailView.as_view(),
+        name="actor-detail"
+    ),
     path(
         "api/cinema/cinema_halls/",
         CinemaHallViewSet.as_view({"get": "list", "post": "create"}),
